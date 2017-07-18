@@ -1,0 +1,40 @@
+= Repo for filing issues
+
+== https://github.com/spring-cloud/spring-cloud-contract/issues/357[Very long response body #357]
+
+To reproduce run the following
+
+[source,bash]
+----
+./mvnw clean install -DskipTests
+----
+
+You should see
+
+
+[source,bash]
+----
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.873 s
+[INFO] Finished at: 2017-07-18T09:14:53+02:00
+[INFO] Final Memory: 30M/437M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.cloud:spring-cloud-contract-maven-plugin:1.2.0.BUILD-SNAPSHOT:convert (default-convert) on project spring-cloud-contract-issue-reproducer: Execution default-convert of goal org.springframework.cloud:spring-cloud-contract-maven-plugin:1.2.0.BUILD-SNAPSHOT:convert failed: org.codehaus.groovy.control.MultipleCompilationErrorsException: startup failed:
+[ERROR] /home/martin/development/git/spring-cloud-contract-issue-reproducer/src/test/resources/contracts/expectation.groovy: 17: String too long. The given string is 113752 Unicode code units long, but only a maximum of 65535 is allowed.
+[ERROR] @ line 17, column 14.
+[ERROR] body('''
+[ERROR] ^
+[ERROR]
+[ERROR] 1 error
+[ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+
+----
+
