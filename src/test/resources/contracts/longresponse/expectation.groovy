@@ -1,4 +1,4 @@
-package contracts
+package contracts.longresponse
 
 org.springframework.cloud.contract.spec.Contract.make {
     request { // (1)

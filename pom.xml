@@ -105,6 +105,42 @@
 		</pluginRepository>
 	</pluginRepositories>
 
+	<profiles>
+		<profile>
+			<id>#357</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+						<version>${spring-cloud-contract.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<!-- By default it would search under src/test/resources/ -->
+							<contractsDirectory>${project.basedir}/src/test/resources/contracts/longresponse</contractsDirectory>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>#123</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.springframework.cloud</groupId>
+						<artifactId>spring-cloud-contract-maven-plugin</artifactId>
+						<version>${spring-cloud-contract.version}</version>
+						<extensions>true</extensions>
+						<configuration>
+							<!-- By default it would search under src/test/resources/ -->
+							<contractsDirectory>${project.basedir}/src/test/resources/contracts/parsingproblem</contractsDirectory>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 
 </project>

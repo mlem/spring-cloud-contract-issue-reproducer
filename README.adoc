@@ -6,7 +6,7 @@ To reproduce run the following
 
 [source,bash]
 ----
-./mvnw clean install -DskipTests
+./mvnw clean install -DskipTests -P#357
 ----
 
 You should see
@@ -29,6 +29,43 @@ You should see
 [ERROR]
 [ERROR] 1 error
 [ERROR] -> [Help 1]
+[ERROR]
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR]
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+
+----
+
+== https://github.com/spring-cloud/spring-cloud-contract/issues/361[last array element writes wrong assertion #361]
+
+To reproduce run the following
+
+[source,bash]
+----
+./mvnw clean install -P#123
+----
+
+You should see
+
+
+[source,bash]
+----
+[INFO] --- spring-cloud-contract-maven-plugin:1.2.0.BUILD-SNAPSHOT:generateTests (default-generateTests) @ spring-cloud-contract-issue-reproducer ---
+[INFO] Generating server tests source code for Spring Cloud Contract Verifier contract verification
+[INFO] Will use contracts provided in the folder [/home/martin/development/git/spring-cloud-contract-issue-reproducer/src/test/resources/contracts/parsingproblem]
+[INFO] Directory with contract is present at [/home/martin/development/git/spring-cloud-contract-issue-reproducer/src/test/resources/contracts/parsingproblem]
+[INFO] Test Source directory: /home/martin/development/git/spring-cloud-contract-issue-reproducer/target/generated-test-sources/contracts added.
+[INFO] Using null as base class for test classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.367 s
+[INFO] Finished at: 2017-07-19T13:23:17+02:00
+[INFO] Final Memory: 37M/437M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.springframework.cloud:spring-cloud-contract-maven-plugin:1.2.0.BUILD-SNAPSHOT:generateTests (default-generateTests) on project spring-cloud-contract-issue-reproducer: Execution default-generateTests of goal org.springframework.cloud:spring-cloud-contract-maven-plugin:1.2.0.BUILD-SNAPSHOT:generateTests failed: Parsed JSON [{"node":{"id":7268,"children":[{"id":7269,"children":[],"references":[{"id":7284}]},{"id":7274,"children":[],"references":[]}],"references":[]}}] with the JSON path [$.['node'].['children'][*].['references'][*]] is not empty! -> [Help 1]
 [ERROR]
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
