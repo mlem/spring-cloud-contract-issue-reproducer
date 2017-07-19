@@ -1,6 +1,6 @@
 = Repo for filing issues
 
-== https://github.com/spring-cloud/spring-cloud-contract/issues/357[Very long response body #357]
+== [FIXED] https://github.com/spring-cloud/spring-cloud-contract/issues/357[Very long response body #357]
 
 To reproduce run the following
 
@@ -38,7 +38,7 @@ You should see
 
 ----
 
-== https://github.com/spring-cloud/spring-cloud-contract/issues/361[last array element writes wrong assertion #361]
+== [FIXED] https://github.com/spring-cloud/spring-cloud-contract/issues/361[last array element writes wrong assertion #361]
 
 To reproduce run the following
 
