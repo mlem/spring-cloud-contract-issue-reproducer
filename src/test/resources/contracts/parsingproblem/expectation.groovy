@@ -38,6 +38,9 @@ org.springframework.cloud.contract.spec.Contract.make {
 
         ]
         )
+        testMatchers {
+            jsonPath("\$.['node'].['children'][*].['references'].[*]",byType { minOccurrence(0) })
+        }
         headers { // (9)
             contentType('application/vnd.fraud.v1+json')
         }

@@ -44,7 +44,7 @@ To reproduce run the following
 
 [source,bash]
 ----
-./mvnw clean install -P#123
+./mvnw clean install -P#361
 ----
 
 You should see
